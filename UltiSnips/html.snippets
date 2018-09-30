@@ -1,0 +1,38 @@
+# my html snippets.
+snippet gaotie "高铁管家HTML模板" !b
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <title>${1:title}</title>
+  <link rel="stylesheet" href="css/${2:csspath}">
+</head>
+<body>
+  <div id="content-wrapper">
+  
+  </div>
+  <script src="js/lib/jquery-1.8.3.min.js"></script>
+  <script src="js/lib/native-api.js"></script>
+  <script src="js/${3:jspath}"></script>
+</body>
+</html>
+endsnippet
+
+snippet wechatShare "高铁管家微信分享" !b
+<div style="display:none;">
+  <div id="fenxiang_title">${1:title}</div>
+  <div id="fenxiang_img">${2:img}</div>
+  <div id="fenxiang_desc">${3:sesc}</div>
+  <div id="fenxiang_link">${4:link}</div>
+</div>
+<script data-main="//jp.rsscc.com/promotion/scripts/wechattools/main" src="//jp.rsscc.com/promotion/scripts/wechattools/require.js"></script>
+endsnippet
+
+snippet mobileMeta "移动开发必加Meta标签" !b
+<meta name="viewport" content="initial-scale=1.0,user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+endsnippet
