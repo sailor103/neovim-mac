@@ -11,49 +11,42 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'mattn/emmet-vim'
 Plug 'mileszs/ack.vim'
-Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-" Plug 'jistr/vim-nerdtree-tabs'
-" Plug 'Valloric/MatchTagAlways'
-"Plug 'drmingdrmer/xptemplate'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/vis'
-" Plug 'hail2u/vim-css3-syntax'
 Plug 'Raimondi/delimitMate'
-" Plug 'pangloss/vim-javascript'
 Plug 'heavenshell/vim-jsdoc', {'for': 'javascript'}
-" Plug 'othree/html5.vim'
-" Plug 'Yggdroot/indentLine'
 Plug 'nathanaelkane/vim-indent-guides'
-"Plug 'junegunn/vim-easy-align'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'sailor103/vim-dict'
 Plug 'kshenoy/vim-signature'
-" Plug 'digitaltoad/vim-pug'
-" Plug 'wavded/vim-stylus'
-" Plug 'groenewege/vim-less'
-" Plug 'posva/vim-vue'
-" Plug 'darthmall/vim-vue'
-" Plug 'mxw/vim-jsx'
-" Plug 'elzr/vim-json'
-" Plug 'iamcco/markdown-preview.vim'
-" Plug 'sailor103/image.vim'
-" Plug 'ap/vim-css-color'
 Plug 'tpope/vim-commentary'
-"Plug 'terryma/vim-multiple-cursors'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'easymotion/vim-easymotion'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'Valloric/YouCompleteMe'
-" Plug 'ryanoasis/vim-devicons'
+" Plug 'Valloric/YouCompleteMe'
+
+" try ncm2
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
+" NOTE: you need to install completion sources to get completions. Check
+" our wiki page for a list of sources: https://github.com/ncm2/ncm2/wiki
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-path'
+Plug 'ncm2/ncm2-cssomni'
+Plug 'ncm2/ncm2-tern' ,  {'do': 'npm install'}
+Plug 'mhartington/nvim-typescript'
+Plug 'ncm2/ncm2-ultisnips'
+
+
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'sheerun/vim-polyglot'
-Plug 'chemzqm/wxapp.vim'
-" Plug 'ternjs/tern_for_vim'
+Plug 'chemzqm/wxapp.vim', {'for': ['wxml', 'wxss']}
 
 call plug#end()            " required 
 
@@ -491,8 +484,14 @@ autocmd FileType python,shell,coffee set commentstring=#\ %s
 
 " YouCompleteMe
 "youcompleteme  默认tab  s-tab 和 ultisnips 冲突
-let g:ycm_key_list_select_completion = ['<Down>']
-let g:ycm_key_list_previous_completion = ['<Up>']
+" let g:ycm_key_list_select_completion = ['<Down>']
+" let g:ycm_key_list_previous_completion = ['<Up>']
+
+" NCM2
+" enable ncm2 for all buffers
+autocmd BufEnter * call ncm2#enable_for_buffer()
+" IMPORTANTE: :help Ncm2PopupOpen for more information
+set completeopt=noinsert,menuone,noselect
 
 " vim-devicons
 " let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {} " needed
