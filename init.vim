@@ -427,6 +427,8 @@ nnoremap U <C-r>
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
+tnoremap <Esc> <C-\><C-n>
+
 "==========================================
 " VUE设置
 "==========================================
