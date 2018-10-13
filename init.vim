@@ -14,7 +14,6 @@ Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/vis'
 Plug 'Raimondi/delimitMate'
-Plug 'nathanaelkane/vim-indent-guides'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'sailor103/vim-dict'
 Plug 'kshenoy/vim-signature'
@@ -31,7 +30,7 @@ Plug 'roxma/nvim-yarp'
 Plug 'ncm2/ncm2-bufword'
 Plug 'ncm2/ncm2-path'
 Plug 'ncm2/ncm2-cssomni'
-Plug 'ncm2/ncm2-tern' ,  {'do': 'npm install'}
+Plug 'ncm2/ncm2-tern', {'do': 'npm install'}
 Plug 'mhartington/nvim-typescript'
 Plug 'ncm2/ncm2-ultisnips'
 
@@ -41,7 +40,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
-Plug 'Yggdroot/indentLine'
+Plug 'Yggdroot/indentLine', {'for': ['javascript', 'html', 'scss', 'less', 'css']}
 
 Plug 'morhetz/gruvbox'
 
@@ -453,10 +452,10 @@ let g:airline_theme = 'gruvbox'
 " vim-javascript
 " let javascript_enable_domhtmlcss = 1
 " indentLine
-let g:indentLine_enabled = 1
-let g:indentLine_char = '┆'
-let g:indentLine_faster = 1
-let g:indentLine_indentLevel = 9
+" let g:indentLine_enabled = 1
+" let g:indentLine_char = '┆'
+" let g:indentLine_faster = 1
+" let g:indentLine_indentLevel = 9
 " EasyAlign
 " vmap <Leader>a <Plug>(EasyAlign)
 " nmap <Leader>a <Plug>(EasyAlign)
