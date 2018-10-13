@@ -11,14 +11,9 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'mattn/emmet-vim'
 Plug 'mileszs/ack.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/vis'
 Plug 'Raimondi/delimitMate'
-Plug 'heavenshell/vim-jsdoc', {'for': 'javascript'}
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'sailor103/vim-dict'
@@ -27,11 +22,8 @@ Plug 'tpope/vim-commentary'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'easymotion/vim-easymotion'
-Plug 'bling/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-" Plug 'Valloric/YouCompleteMe'
 
-" try ncm2
+"auto completion - try ncm2
 Plug 'ncm2/ncm2'
 Plug 'roxma/nvim-yarp'
 " NOTE: you need to install completion sources to get completions. Check
@@ -43,10 +35,23 @@ Plug 'ncm2/ncm2-tern' ,  {'do': 'npm install'}
 Plug 'mhartington/nvim-typescript'
 Plug 'ncm2/ncm2-ultisnips'
 
+" theme
+Plug 'mhinz/vim-startify'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'Yggdroot/indentLine'
 
-Plug 'NLKNguyen/papercolor-theme'
+Plug 'morhetz/gruvbox'
+
+Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+"language
 Plug 'sheerun/vim-polyglot'
 Plug 'chemzqm/wxapp.vim', {'for': ['wxml', 'wxss']}
+Plug 'heavenshell/vim-jsdoc', {'for': 'javascript'}
 
 call plug#end()            " required 
 
@@ -443,14 +448,15 @@ autocmd FileType javascript.jsx setlocal commentstring={/*\ %s\ */}
 
 " vim-airline
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'powerlineish'
+let g:airline_theme = 'gruvbox'
+
 " vim-javascript
 " let javascript_enable_domhtmlcss = 1
 " indentLine
-" let g:indentLine_enabled = 1
-" let g:indentLine_char = '┆'
-" let g:indentLine_faster = 1
-" let g:indentLine_indentLevel = 9
+let g:indentLine_enabled = 1
+let g:indentLine_char = '┆'
+let g:indentLine_faster = 1
+let g:indentLine_indentLevel = 9
 " EasyAlign
 " vmap <Leader>a <Plug>(EasyAlign)
 " nmap <Leader>a <Plug>(EasyAlign)
@@ -530,9 +536,8 @@ let g:mta_filetypes = {
     \}
 
 set background=dark
-colorscheme PaperColor
-" set background=dark
-" colorscheme material-theme
+colorscheme gruvbox
+
 set t_Co=256
 if has('gui_win32')
   set guifont=Iosevka\ Term:h14:cANSI
