@@ -55,6 +55,7 @@ Plug 'morhetz/gruvbox'
 
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'ryanoasis/vim-devicons'
 
 "language
 Plug 'sheerun/vim-polyglot'
@@ -519,11 +520,11 @@ let g:languageclient_servercommands = {
 
 
 " vim-devicons
-" let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {} " needed
-" let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['vue'] = ''
-" let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {} " needed
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['vue'] = ''
+let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
 
-" let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 
 "==========================================
 " Theme Settings  主题设置
