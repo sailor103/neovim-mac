@@ -31,7 +31,10 @@ Plug 'ncm2/ncm2-bufword'
 Plug 'ncm2/ncm2-path'
 Plug 'ncm2/ncm2-cssomni'
 Plug 'ncm2/ncm2-tern', {'do': 'npm install'}
-Plug 'mhartington/nvim-typescript'
+Plug 'mhartington/nvim-typescript', {
+  \ 'for': ['typescript', 'tsx'],
+  \ 'do': './install.sh' 
+  \ }
 Plug 'ncm2/ncm2-ultisnips'
 
 " LanguageServer client for NeoVim.
@@ -507,7 +510,7 @@ autocmd BufEnter * call ncm2#enable_for_buffer()
 set completeopt=noinsert,menuone,noselect
 
 " LSP/Language Servies
-autocmd bufenter  *.js  call ncm2#enable_for_buffer()
+autocmd bufenter *.ts,*.js call ncm2#enable_for_buffer()
 set completeopt=noinsert,menuone,noselect
 let g:languageclient_servercommands = {
   \ 'typescript': ['javascript-typescript-stdio'],
