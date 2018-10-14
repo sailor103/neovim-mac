@@ -34,6 +34,12 @@ Plug 'ncm2/ncm2-tern', {'do': 'npm install'}
 Plug 'mhartington/nvim-typescript'
 Plug 'ncm2/ncm2-ultisnips'
 
+" LanguageServer client for NeoVim.
+Plug 'autozimu/LanguageClient-neovim', {
+  \ 'branch': 'next',
+  \ 'do': 'bash install.sh',
+  \ }
+
 " theme
 Plug 'mhinz/vim-startify'
 Plug 'scrooloose/nerdtree'
@@ -499,6 +505,15 @@ autocmd FileType python,shell,coffee set commentstring=#\ %s
 autocmd BufEnter * call ncm2#enable_for_buffer()
 " IMPORTANTE: :help Ncm2PopupOpen for more information
 set completeopt=noinsert,menuone,noselect
+
+" LSP/Language Servies
+autocmd bufenter  *.js  call ncm2#enable_for_buffer()
+set completeopt=noinsert,menuone,noselect
+let g:languageclient_servercommands = {
+  \ 'typescript': ['javascript-typescript-stdio'],
+  \ 'javascript': ['javascript-typescript-stdio']
+  \ }
+
 
 " vim-devicons
 " let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {} " needed
