@@ -12,6 +12,7 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'mattn/emmet-vim'
 Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 Plug 'vim-scripts/vis'
 Plug 'Raimondi/delimitMate'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -45,8 +46,8 @@ Plug 'autozimu/LanguageClient-neovim', {
 
 " theme
 Plug 'mhinz/vim-startify'
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+Plug 'Xuyuanp/nerdtree-git-plugin', {'on': 'NERDTreeToggle'}
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'Yggdroot/indentLine', {'for': ['javascript', 'html', 'scss', 'less', 'css']}
@@ -55,7 +56,7 @@ Plug 'morhetz/gruvbox'
 
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'ryanoasis/vim-devicons'
+" Plug 'ryanoasis/vim-devicons'
 
 "language
 Plug 'sheerun/vim-polyglot'
@@ -520,11 +521,11 @@ let g:languageclient_servercommands = {
 
 
 " vim-devicons
-let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {} " needed
-let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['vue'] = ''
-let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
+" let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {} " needed
+" let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['vue'] = ''
+" let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
 
-let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+" let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 
 "==========================================
 " Theme Settings  主题设置
