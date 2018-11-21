@@ -60,6 +60,7 @@ Plug 'vim-airline/vim-airline-themes'
 
 "language
 Plug 'sheerun/vim-polyglot'
+Plug 'plasticboy/vim-markdown'
 Plug 'chemzqm/wxapp.vim', {'for': ['wxml', 'wxss']}
 Plug 'heavenshell/vim-jsdoc', {'for': 'javascript'}
 
@@ -450,9 +451,14 @@ tnoremap <Esc> <C-\><C-n>
 " nnoremap <leader>js :set ft=javascript<CR>
 
 "==========================================
-" JSX 注释
+" JSX
 "==========================================
 autocmd FileType javascript.jsx setlocal commentstring={/*\ %s\ */}
+let g:user_emmet_settings = {
+\  'javascript.jsx' : {
+\      'extends' : 'jsx',
+\  },
+\}
 
 "==========================================
 " 插件设置
