@@ -1,10 +1,10 @@
 let g:netrw_dirhistmax  =10
 let g:netrw_dirhist_cnt =8
-let g:netrw_dirhist_1='/Users/qcyin/Self/Learn-typescript'
-let g:netrw_dirhist_2='/Users/qcyin/coding/costa-website-china'
-let g:netrw_dirhist_3='/Users/qcyin/coding/costa-website-china/public'
-let g:netrw_dirhist_4='/Users/qcyin/coding/costa-website-china'
-let g:netrw_dirhist_5='/Users/qcyin/coding/costa-website-china/public'
+let g:netrw_dirhist_1='/Users/qcyin/Self/devilbox/data/www/malagiscom/htdocs/usr'
+let g:netrw_dirhist_2='/Users/qcyin/coding/costa-cms-japan'
+let g:netrw_dirhist_3='/Users/qcyin/coding/costa-website-china'
+let g:netrw_dirhist_4='/Users/qcyin/coding/costa-website-japan'
+let g:netrw_dirhist_5='/Users/qcyin/coding/costa-website-japan/src'
 let g:netrw_dirhist_6='/Users/qcyin/coding/costa-website-china'
-let g:netrw_dirhist_7='/Users/qcyin/coding/costa-website-china/public'
-let g:netrw_dirhist_8='/Users/qcyin/Self/Learn-koa'
+let g:netrw_dirhist_7='/Users/qcyin/coding/costa-website-china/src'
+let g:netrw_dirhist_8='/Users/qcyin/coding/costa-website-china'
