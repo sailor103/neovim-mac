@@ -16,7 +16,7 @@ Plug 'tpope/vim-repeat'
 Plug 'vim-scripts/vis'
 Plug 'Raimondi/delimitMate'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'sailor103/vim-dict'
+" Plug 'sailor103/vim-dict'
 Plug 'kshenoy/vim-signature'
 Plug 'tpope/vim-commentary'
 Plug 'SirVer/ultisnips'
@@ -54,6 +54,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'Yggdroot/indentLine', {'for': ['javascript', 'html', 'scss', 'less', 'css']}
 
 Plug 'morhetz/gruvbox'
+Plug 'joshdick/onedark.vim'
 
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -175,7 +176,7 @@ set number
 set relativenumber
 
 " 取消换行。
-set wrap
+set nowrap
 
 " 括号配对情况,跳转并高亮一下匹配的括号
 set showmatch
@@ -468,7 +469,8 @@ let g:user_emmet_settings = {
 
 " vim-airline
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'gruvbox'
+" let g:airline_theme = 'gruvbox'
+let g:airline_theme = 'onedark'
 
 " vim-javascript
 " let javascript_enable_domhtmlcss = 1
@@ -565,7 +567,8 @@ let g:mta_filetypes = {
     \}
 
 set background=dark
-colorscheme gruvbox
+" colorscheme gruvbox
+colorscheme onedark
 
 set t_Co=256
 if has('gui_win32')
@@ -573,6 +576,12 @@ if has('gui_win32')
 else
   set guifont=Iosevka\ Nerd\ Font:h18
 endif
+
+if has("termguicolors")
+    " enable true color
+    set termguicolors
+endif
+
 "By YQC
 "Tab next
 map <C-t> :tabnext<CR>
