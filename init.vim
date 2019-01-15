@@ -451,7 +451,8 @@ tnoremap <Esc> <C-\><C-n>
 " au! BufNewFile,BufRead *.vue setf javascript
 " nnoremap <leader>pg :set ft=pug<CR>
 " nnoremap <leader>st :set ft=stylus<CR>
-" nnoremap <leader>js :set ft=javascript<CR>
+nnoremap <leader>js :set ft=javascript<CR>
+nnoremap <leader>jsx :set ft=javascript.jsx<CR>
 
 "==========================================
 " JSX
