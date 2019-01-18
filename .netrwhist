@@ -1,7 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/Users/qcyin/coding/costa-website-japan/src'
-let g:netrw_dirhist_2='/Users/qcyin/coding/costa-website-japan'
-let g:netrw_dirhist_3='/Users/qcyin/Self/postmy/MalaGIS/GIS教学视频/地理信息与人类生活'
-let g:netrw_dirhist_4='/Users/qcyin/Self/postmy/MalaGIS/GIS教学视频'
-let g:netrw_dirhist_5='/Users/qcyin/Self/postmy/MalaGIS/GIS教学视频/地理空间革命'
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/Users/qcyin/coding/costa-website-china'
+let g:netrw_dirhist_2='/Users/qcyin/coding/costa-website-china/src'
+let g:netrw_dirhist_3='/Users/qcyin/coding/costa-website-china/src/containers'
+let g:netrw_dirhist_4='/Users/qcyin/coding/costa-website-china/src/containers/Destinations'
+let g:netrw_dirhist_5='/Users/qcyin/.config/nvim'
+let g:netrw_dirhist_6='/Users/qcyin/coding/costa-website-china'

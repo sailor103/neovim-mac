@@ -15,14 +15,15 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'vim-scripts/vis'
 Plug 'Raimondi/delimitMate'
-Plug 'ctrlpvim/ctrlp.vim'
-" Plug 'sailor103/vim-dict'
 Plug 'kshenoy/vim-signature'
 Plug 'tpope/vim-commentary'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'easymotion/vim-easymotion'
 Plug 'Chiel92/vim-autoformat'
+Plug 'airblade/vim-rooter'
+Plug '/usr/local/opt/fzf' " install from homebrew
+Plug 'junegunn/fzf.vim'
 
 "auto completion - try ncm2
 Plug 'ncm2/ncm2'
@@ -454,9 +455,13 @@ tnoremap <Esc> <C-\><C-n>
 nnoremap <leader>js :set ft=javascript<CR>
 nnoremap <leader>jsx :set ft=javascript.jsx<CR>
 
+" reload file
+nnoremap <leader>rs :e!<CR>
+
 "==========================================
 " JSX
 "==========================================
+let g:jsx_ext_required = 1
 autocmd FileType javascript.jsx setlocal commentstring={/*\ %s\ */}
 let g:user_emmet_settings = {
 \  'javascript.jsx' : {
@@ -487,34 +492,20 @@ let g:airline_theme = 'onedark'
 "   let g:easy_align_delimiters = {}
 " endif
 " let g:easy_align_delimiters['#'] = { 'pattern': '#', 'ignore_groups': ['String'] }
-" ctrlp
-let g:ctrlp_map = '<leader>p'
-let g:ctrlp_cmd = 'CtrlP'
-map <leader>f :CtrlPMRU<CR>
-map <leader>b :CtrlPBuffer<CR>
-let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\.yardoc\|\.rvm\|node_modules$',
-    \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz|pyc)$',
-    \ }
-let g:ctrlp_max_files=0
-let g:ctrlp_max_depth=99
-let g:ctrlp_working_path_mode='ra'
-let g:ctrlp_match_window_bottom=1
-let g:ctrlp_max_height=15
-let g:ctrlp_match_window_reversed=0
-let g:ctrlp_mruf_max=500
-let g:ctrlp_follow_symlinks=1
+
+" FZF
+map <leader>b :Buffers<CR>
+map <leader>p :Files<CR>
+map <leader>f :Rg<CR>
+
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+
 " vim-commentary
 autocmd FileType python,shell,coffee set commentstring=#\ %s
-" vim-markdonw
-" let g:vim_markdown_conceal = 0
-" vim-markdown-preview
-" let g:mkdp_path_to_chrome = "google-chrome"
-
-" YouCompleteMe
-"youcompleteme  默认tab  s-tab 和 ultisnips 冲突
-" let g:ycm_key_list_select_completion = ['<Down>']
-" let g:ycm_key_list_previous_completion = ['<Up>']
 
 " NCM2
 " enable ncm2 for all buffers
