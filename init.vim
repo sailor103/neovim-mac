@@ -500,6 +500,7 @@ map <leader>b :Buffers<CR>
 map <leader>p :Files<CR>
 map <leader>t :Tags<CR>
 map <leader>f :Rg<CR>
+map <leader>s :Snippets<CR>
 
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
