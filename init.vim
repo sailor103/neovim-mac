@@ -24,6 +24,7 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'airblade/vim-rooter'
 Plug '/usr/local/opt/fzf' " install from homebrew
 Plug 'junegunn/fzf.vim'
+Plug 'ludovicchabant/vim-gutentags'
 
 "auto completion - try ncm2
 Plug 'ncm2/ncm2'
@@ -494,8 +495,10 @@ let g:airline_theme = 'onedark'
 " let g:easy_align_delimiters['#'] = { 'pattern': '#', 'ignore_groups': ['String'] }
 
 " FZF
+" export FZF_DEFAULT_COMMAND="rg --files --hidden -g'!.git'" //set in .zshrc
 map <leader>b :Buffers<CR>
 map <leader>p :Files<CR>
+map <leader>t :Tags<CR>
 map <leader>f :Rg<CR>
 
 let g:fzf_action = {
@@ -503,6 +506,10 @@ let g:fzf_action = {
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
 
+" Gen ctags
+let g:gutentags_ctags_tagfile = '.tags'
+let g:gutentags_file_list_command = 'rg --files'
+let g:gutentags_cache_dir = '~/.cachetags'
 
 " vim-commentary
 autocmd FileType python,shell,coffee set commentstring=#\ %s
