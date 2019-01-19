@@ -10,7 +10,6 @@ filetype off                   " required!
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'mattn/emmet-vim'
-Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'vim-scripts/vis'
