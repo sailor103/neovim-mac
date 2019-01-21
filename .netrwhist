@@ -1,6 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/Users/qcyin/Self/postmy/Blog/2019'
-let g:netrw_dirhist_2='/Users/qcyin/Self/postmy'
-let g:netrw_dirhist_3='/Users/qcyin/Self/postmy/GIS00'
-let g:netrw_dirhist_4='/Users/qcyin/Self/postmy'
+let g:netrw_dirhist_cnt =0
