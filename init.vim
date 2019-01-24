@@ -34,6 +34,7 @@ Plug 'ncm2/ncm2-bufword'
 Plug 'ncm2/ncm2-path'
 Plug 'ncm2/ncm2-cssomni'
 Plug 'ncm2/ncm2-tern', {'do': 'npm install'}
+Plug 'ternjs/tern_for_vim', {'do': 'npm install'}
 Plug 'mhartington/nvim-typescript', {
   \ 'for': ['typescript', 'tsx'],
   \ 'do': './install.sh' 
@@ -88,6 +89,7 @@ filetype on
 filetype indent on
 "允许插件
 filetype plugin on
+set omnifunc=syntaxcomplete#Complete
 "启动自动补全
 filetype plugin indent on
 
