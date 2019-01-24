@@ -65,6 +65,7 @@ Plug 'vim-airline/vim-airline-themes'
 "language
 Plug 'sheerun/vim-polyglot'
 Plug 'ianks/vim-tsx'
+Plug 'hail2u/vim-css3-syntax'
 " Plug 'plasticboy/vim-markdown'
 Plug 'chemzqm/wxapp.vim', {'for': ['wxml', 'wxss']}
 Plug 'heavenshell/vim-jsdoc', {'for': 'javascript'}
@@ -289,26 +290,6 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 "autocmd vimenter * NERDTree
 map <C-n> :NERDTreeToggle<CR>
 
-" " NERDTress File highlighting
-" function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
-"   exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
-"   exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
-" endfunction
-
-" call NERDTreeHighlightFile('jade', 'green', 'none', 'green', '#151515')
-" call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', '#151515')
-" call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
-" call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
-" call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
-" call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
-" call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
-" call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
-" call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
-" call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
-" call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
-" call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
-" call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
-
 "上下左右键的行为 会显示其他信息
 "inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
 "inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
@@ -462,7 +443,7 @@ nnoremap <leader>jsx :set ft=javascript.jsx<CR>
 nnoremap <leader>rs :e!<CR>
 
 "==========================================
-" JSX
+" JSX & TSX
 "==========================================
 let g:jsx_ext_required = 1
 autocmd FileType javascript.jsx setlocal commentstring={/*\ %s\ */}
@@ -480,6 +461,11 @@ let g:user_emmet_settings = {
 \}
 
 "==========================================
+" CSS
+"==========================================
+autocmd FileType css,scss,less set iskeyword=@,48-57,_,-,?,!,192-255
+
+"==========================================
 " 插件设置
 "==========================================
 
@@ -488,21 +474,6 @@ let g:airline_powerline_fonts = 1
 " let g:airline_theme = 'gruvbox'
 let g:airline_theme = 'onedark'
 
-" vim-javascript
-" let javascript_enable_domhtmlcss = 1
-" indentLine
-" let g:indentLine_enabled = 1
-" let g:indentLine_char = '┆'
-" let g:indentLine_faster = 1
-" let g:indentLine_indentLevel = 9
-" EasyAlign
-" vmap <Leader>a <Plug>(EasyAlign)
-" nmap <Leader>a <Plug>(EasyAlign)
-" if !exists('g:easy_align_delimiters')
-"   let g:easy_align_delimiters = {}
-" endif
-" let g:easy_align_delimiters['#'] = { 'pattern': '#', 'ignore_groups': ['String'] }
-
 " FZF
 " export FZF_DEFAULT_COMMAND="rg --files --hidden -g'!.git'" //set in .zshrc
 map <leader>b :Buffers<CR>
@@ -510,6 +481,8 @@ map <leader>p :Files<CR>
 map <leader>t :Tags<CR>
 map <leader>f :Rg<CR>
 map <leader>s :Snippets<CR>
+map <leader>m :call LanguageClient_contextMenu()<CR>
+map <leader>df :call LanguageClient#textDocument_definition()<CR>
 
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
@@ -531,12 +504,29 @@ autocmd BufEnter * call ncm2#enable_for_buffer()
 set completeopt=noinsert,menuone,noselect
 
 " LSP/Language Servies
-autocmd bufenter *.ts,*.js call ncm2#enable_for_buffer()
+autocmd bufenter *.ts,*.js,*.tsx,*.jsx call ncm2#enable_for_buffer()
 set completeopt=noinsert,menuone,noselect
-let g:languageclient_servercommands = {
-  \ 'typescript': ['javascript-typescript-stdio'],
-  \ 'javascript': ['javascript-typescript-stdio']
-  \ }
+let g:LanguageClient_serverCommands = {}
+if executable('javascript-typescript-stdio')
+  let g:LanguageClient_serverCommands.javascript = ['javascript-typescript-stdio']
+  let g:LanguageClient_serverCommands['javascript.jsx'] = ['javascript-typescript-stdio']
+  let g:LanguageClient_serverCommands.typescript = ['javascript-typescript-stdio']
+  let g:LanguageClient_serverCommands['typescript.tsx'] = ['javascript-typescript-stdio']
+  " let g:languageclient_servercommands = {
+  "   \ 'typescript': ['javascript-typescript-stdio'],
+  "   \ 'javascript': ['javascript-typescript-stdio'],
+  "   \ 'typescript.tsx': ['tcp://127.0.0.1:2089'],
+  "   \ 'javascript.jsx': ['tcp://127.0.0.1:2089']
+  "   \ }
+  " Use LanguageServer for omnifunc completion
+  autocmd FileType javascript setlocal omnifunc=LanguageClient#complete
+  autocmd FileType typescript setlocal omnifunc=LanguageClient#complete
+  autocmd FileType javascript.jsx setlocal omnifunc=LanguageClient#complete
+  autocmd FileType typescript.tsx setlocal omnifunc=LanguageClient#complete
+else
+  echo "javascript-typescript-stdio not installed!\n"
+  :cq
+endif
 
 
 " vim-devicons
