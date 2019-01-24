@@ -456,7 +456,7 @@ let g:user_emmet_settings = {
 autocmd FileType typescript.tsx setlocal commentstring={/*\ %s\ */}
 let g:user_emmet_settings = {
 \  'typescript.tsx' : {
-\      'extends' : 'tsx',
+\      'extends' : 'jsx',
 \  },
 \}
 
@@ -481,7 +481,7 @@ map <leader>p :Files<CR>
 map <leader>t :Tags<CR>
 map <leader>f :Rg<CR>
 map <leader>s :Snippets<CR>
-map <leader>m :call LanguageClient_contextMenu()<CR>
+map <leader>mu :call LanguageClient_contextMenu()<CR>
 map <leader>df :call LanguageClient#textDocument_definition()<CR>
 
 let g:fzf_action = {
@@ -536,6 +536,14 @@ endif
 
 " let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 
+"==========================================
+" 自定义函数
+"==========================================
+function! RpClassName()
+  execute '%s/className=\"\(.*\)\"/className={styles.\1}/g'
+endfunction
+
+map <leader>cn :call RpClassName()<CR>
 "==========================================
 " Theme Settings  主题设置
 "==========================================
