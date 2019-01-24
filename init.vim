@@ -63,7 +63,8 @@ Plug 'vim-airline/vim-airline-themes'
 
 "language
 Plug 'sheerun/vim-polyglot'
-Plug 'plasticboy/vim-markdown'
+Plug 'ianks/vim-tsx'
+" Plug 'plasticboy/vim-markdown'
 Plug 'chemzqm/wxapp.vim', {'for': ['wxml', 'wxss']}
 Plug 'heavenshell/vim-jsdoc', {'for': 'javascript'}
 
@@ -177,7 +178,7 @@ set number
 set relativenumber
 
 " 取消换行。
-set nowrap
+" set nowrap
 
 " 括号配对情况,跳转并高亮一下匹配的括号
 set showmatch
@@ -466,6 +467,13 @@ autocmd FileType javascript.jsx setlocal commentstring={/*\ %s\ */}
 let g:user_emmet_settings = {
 \  'javascript.jsx' : {
 \      'extends' : 'jsx',
+\  },
+\}
+
+autocmd FileType typescript.tsx setlocal commentstring={/*\ %s\ */}
+let g:user_emmet_settings = {
+\  'typescript.tsx' : {
+\      'extends' : 'tsx',
 \  },
 \}
 
