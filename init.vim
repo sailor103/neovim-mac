@@ -64,7 +64,8 @@ Plug 'vim-airline/vim-airline-themes'
 
 "language
 Plug 'sheerun/vim-polyglot'
-Plug 'ianks/vim-tsx'
+" Plug 'ianks/vim-tsx'
+Plug 'peitalin/vim-jsx-typescript'
 Plug 'hail2u/vim-css3-syntax'
 " Plug 'plasticboy/vim-markdown'
 Plug 'chemzqm/wxapp.vim', {'for': ['wxml', 'wxss']}
@@ -453,7 +454,7 @@ let g:user_emmet_settings = {
 \  },
 \}
 
-autocmd FileType typescript.tsx setlocal commentstring={/*\ %s\ */}
+" autocmd FileType typescript.tsx setlocal commentstring={/*\ %s\ */}
 let g:user_emmet_settings = {
 \  'typescript.tsx' : {
 \      'extends' : 'jsx',
@@ -478,15 +479,15 @@ let g:airline_theme = 'onedark'
 " export FZF_DEFAULT_COMMAND="rg --files --hidden -g'!.git'" //set in .zshrc
 map <leader>b :Buffers<CR>
 map <leader>p :Files<CR>
-map <leader>t :Tags<CR>
+map <leader>tg :Tags<CR>
 map <leader>f :Rg<CR>
-map <leader>s :Snippets<CR>
-map <leader>mu :call LanguageClient_contextMenu()<CR>
+map <leader>sn :Snippets<CR>
+map <leader>ls :call LanguageClient_contextMenu()<CR>
 map <leader>df :call LanguageClient#textDocument_definition()<CR>
 
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
+  \ 'ctrl-s': 'split',
   \ 'ctrl-v': 'vsplit' }
 
 " Gen ctags
